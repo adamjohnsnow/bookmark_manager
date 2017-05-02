@@ -1,0 +1,12 @@
+
+<ol id='links'>
+  <% @links.each do |link| %>
+    <li>  Title: <%= link.title %>
+      URL:   <%= link.url %>
+    </li>
+  <% end %>
+</ol>
+
+<form action="/new">
+  <input type="submit" value="Add Bookmark" name="new">
+</form>
