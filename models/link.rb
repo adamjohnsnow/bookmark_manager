@@ -14,6 +14,6 @@ else
   @database = "postgres://localhost/bookmark_manager_development"
 end
 
-DataMapper.setupDataMapper.setup(:default, ENV['DATABASE_URL'] || @database)
+DataMapper.setup(:default, ENV['DATABASE_URL'] || @database)
 DataMapper.finalize
 DataMapper.auto_upgrade!
