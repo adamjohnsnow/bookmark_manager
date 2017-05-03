@@ -6,6 +6,7 @@ class Link
   property :id, Serial
   property :title, String
   property :url, URI
+  property :tag, String
 end
 
 if ENV['RACK_ENV'] == 'test'
