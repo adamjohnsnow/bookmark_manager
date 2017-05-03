@@ -60,4 +60,13 @@ end
       visit '/tags/bubbles'
       expect(page).to have_content 'www.bubbles.com'
     end
+
+    scenario 'multiple tags' do
+      visit '/new'
+      fill_in 'url',   with: 'http://www.multiple.com'
+      fill_in 'title', with: 'Multitag'
+      fill_in 'tag',  with: 'multi, test, flobzy, pepsi man'
+      click_button 'Save'
+      expect(page).to have_content 'http://www.multiple.com Tags: multi | test'
+    end
 end

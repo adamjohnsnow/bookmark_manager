@@ -3,8 +3,8 @@
   <% @links.each do |link| %>
     <li>  Title: <%= link.title %>
       URL:   <%= link.url %>
-  Tags:  <% link.tags.each do |tag| %>
-       <%= tag.name %> 
+  Tags:  <% link.tags.sort.each do |tag| %>
+       <%= tag.name %> |
     <% end %>
   </ul>
     </li>
