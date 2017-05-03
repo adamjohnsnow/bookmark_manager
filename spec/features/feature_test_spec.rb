@@ -15,7 +15,7 @@
 # I want to be able to filter my favourites by their tags
 
 feature 'Testing links' do
-    DatabaseCleaner.clean
+  DatabaseCleaner.clean
   scenario 'can click on link' do
     Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
     visit '/links'
@@ -31,6 +31,7 @@ feature 'adding links' do
     visit '/new'
     fill_in('title', with: 'YouTube')
     fill_in('url', with: 'http://www.youtube.com')
+    fill_in('tag', with: 'video')
     click_button('save')
     within 'ol#links' do
       expect(page).to have_content('YouTube')
