@@ -24,7 +24,6 @@ feature 'Testing links' do
       expect(page).to have_content('Makers Academy')
     end
   end
-
 end
 
 feature 'adding links' do
@@ -38,4 +37,27 @@ feature 'adding links' do
       expect(page).to have_content('YouTube')
     end
   end
+end
+
+  feature 'Adding tags' do
+    scenario 'I can add a single tag to a new link' do
+      DatabaseCleaner.clean
+      visit '/new'
+      fill_in 'url',   with: 'http://www.makersacademy.com/'
+      fill_in 'title', with: 'Makers Academy'
+      fill_in 'tag',  with: 'education'
+      click_button 'Save'
+      link = Link.first
+      expect(link.tags.map(&:name)).to include('education')
+    end
+
+    scenario 'filter for bubbles' do
+      visit '/new'
+      fill_in 'url',   with: 'http://www.bubbles.com/'
+      fill_in 'title', with: 'Bubbles'
+      fill_in 'tag',  with: 'bubbles'
+      click_button 'Save'
+      visit '/tags/bubbles'
+      expect(page).to have_content 'www.bubbles.com'
+    end
 end

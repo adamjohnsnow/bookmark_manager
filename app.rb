@@ -13,7 +13,6 @@ class BookmarkManager < Sinatra::Base
 
   get '/links' do
     @links = Link.all
-    @tags = Tag.all
     erb(:links)
   end
 
@@ -27,5 +26,10 @@ class BookmarkManager < Sinatra::Base
     link.tags << tag
     link.save
     redirect '/links'
+  end
+
+  get '/tags/bubbles' do
+    @links = Link.all(Link.tags.name => 'bubbles')
+    erb(:links)
   end
 end
