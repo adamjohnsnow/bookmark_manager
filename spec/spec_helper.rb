@@ -5,10 +5,12 @@ require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
 require 'rspec'
+require 'database_cleaner'
 require_relative '../app'
 require_relative './features/web_helpers'
 require_relative '../models/link'
-require 'database_cleaner'
+require_relative '../models/tag'
+
 
 DatabaseCleaner.strategy = :truncation
 

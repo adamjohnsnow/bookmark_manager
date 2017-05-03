@@ -28,11 +28,6 @@
         1,
         null,
         null,
-        1,
-        1,
-        1,
-        1,
-        null,
         null,
         null,
         null,
@@ -41,12 +36,6 @@
         1,
         1,
         1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
         1,
         1,
         1,
@@ -58,13 +47,34 @@
       "/Users/adamsnow/OneDrive/MacBook Only/Coding/weekly_projects/bookmark_manager/spec/units/interface_spec.rb": [
 
       ],
-      "/Users/adamsnow/OneDrive/MacBook Only/Coding/weekly_projects/bookmark_manager/spec/units/user_spec.rb": [
-
+      "/Users/adamsnow/OneDrive/MacBook Only/Coding/weekly_projects/bookmark_manager/spec/units/link_spec.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
       ],
-      "/Users/adamsnow/OneDrive/MacBook Only/Coding/weekly_projects/bookmark_manager/spec/units/user_verification_spec.rb": [
+      "/Users/adamsnow/OneDrive/MacBook Only/Coding/weekly_projects/bookmark_manager/spec/units/tag_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/adamsnow/OneDrive/MacBook Only/Coding/weekly_projects/bookmark_manager/spec/units/user_spec.rb": [
 
       ]
     },
-    "timestamp": 1493804845
+    "timestamp": 1493819212
   }
 }

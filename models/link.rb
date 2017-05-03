@@ -1,20 +1,12 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require_relative 'tag'
 
 class Link
   include DataMapper::Resource
   property :id, Serial
   property :title, String
   property :url, URI
-  property :tag, String
-end
 
-if ENV['RACK_ENV'] == 'test'
-  @database = "postgres://localhost/bookmark_manager_test"
-else
-  @database = "postgres://localhost/bookmark_manager_development"
+  has n, :tags, through: Resource
 end
-
-DataMapper.setup(:default, ENV['DATABASE_URL'] || @database)
-DataMapper.finalize
-DataMapper.auto_upgrade!

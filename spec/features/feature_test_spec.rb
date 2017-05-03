@@ -17,19 +17,14 @@
 feature 'Testing links' do
   DatabaseCleaner.clean
   scenario 'has links' do
-    Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy', tag: 'learning')
+    Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
     visit '/links'
     expect(page.status_code).to eq 200
     within 'ol#links' do
       expect(page).to have_content('Makers Academy')
     end
   end
-  scenario 'has tags' do
-    visit '/links'
-    within 'ol#links' do
-      expect(page).to have_content('learning')
-    end
-  end
+
 end
 
 feature 'adding links' do
@@ -41,12 +36,6 @@ feature 'adding links' do
     click_button('Save')
     within 'ol#links' do
       expect(page).to have_content('YouTube')
-    end
-  end
-  scenario 'can add with tags' do
-    visit '/links'
-    within 'ol#links' do
-      expect(page).to have_content('video')
     end
   end
 end
