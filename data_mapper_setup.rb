@@ -11,4 +11,4 @@ end
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || @database)
 DataMapper.finalize
-DataMapper.upgrade!
+DataMapper.auto_upgrade!
