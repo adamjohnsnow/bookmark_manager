@@ -33,4 +33,3 @@ class BookmarkManager < Sinatra::Base
     erb(:links)
   end
 end
-  #
