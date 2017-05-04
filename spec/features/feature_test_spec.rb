@@ -1,21 +1,24 @@
-# As a user
-# So that I can find my favourite URL's faster
-# I want to be able to see a list of my favourite URLs
+feature 'accounts' do
 
-# As a user
-# So that I can add new URL's to my favourites
-# I want to be able to add a new URL to my favourites
+  scenario 'register user' do
+    DatabaseCleaner.clean
+    sign_up
+    expect(page).to have_content('Welcome Testy')
+  end
 
-# As a user
-# So that I can see what type of URL's it is
-# I want to be able to tag the URL with a label
+  scenario 'user count increased' do
+    users = User.all
+    expect(users.count).to eq 1
+  end
 
-# As a user
-# So that I can find similar URL's faster
-# I want to be able to filter my favourites by their tags
+  scenario 'sign in' do
+    sign_in
+    expect(page).to have_content('Welcome Testy')
+  end
+end
 
 feature 'Testing links' do
-  DatabaseCleaner.clean
+
   scenario 'has links' do
     Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
     visit '/links'
