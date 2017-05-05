@@ -11,21 +11,15 @@ feature 'accounts' do
     expect(users.count).to eq 1
   end
 
+  scenario 'password verification' do
+    sign_up_wrong
+    expect(page).to have_content "Mismatched passwords"
+    expect(page.current_path).to eq '/sign_up'
+  end
+
   scenario 'sign in' do
     sign_in
     expect(page).to have_content('Welcome Testy')
-  end
-end
-
-feature 'Testing links' do
-
-  scenario 'has links' do
-    Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
-    visit '/links'
-    expect(page.status_code).to eq 200
-    within 'ol#links' do
-      expect(page).to have_content('Makers Academy')
-    end
   end
 end
 
@@ -44,14 +38,8 @@ end
 
   feature 'Adding tags' do
     scenario 'I can add a single tag to a new link' do
-      DatabaseCleaner.clean
-      visit '/new'
-      fill_in 'url',   with: 'http://www.makersacademy.com/'
-      fill_in 'title', with: 'Makers Academy'
-      fill_in 'tag',  with: 'education'
-      click_button 'Save'
       link = Link.first
-      expect(link.tags.map(&:name)).to include('education')
+      expect(link.tags.map(&:name)).to include('video')
     end
 
     scenario 'filter for bubbles' do

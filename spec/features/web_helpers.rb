@@ -15,3 +15,15 @@ def sign_in
   fill_in('password', with: 'password')
   click_button('Sign In')
 end
+
+
+def sign_up_wrong
+  visit '/'
+  click_button('Sign Up')
+  fill_in('email', with: 'test@test.com')
+  fill_in('first_name', with: 'Testy')
+  fill_in('surname', with: 'McTestyface')
+  fill_in('password', with: 'password')
+  fill_in('verify_password', with: 'pissvurd')
+  click_button('Sign Up')
+end
